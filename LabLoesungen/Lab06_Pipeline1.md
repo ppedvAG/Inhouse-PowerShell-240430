@@ -1,20 +1,22 @@
 # Lösung zu Lab: PipeLine 1
 ### 1.
 ```powershell
-Get-AdUser -Filter * | Format-Wide -Property SurNane
+Get-Process | Sort-Object -Property |Select-Object -Property ProcessName
 ```
 ---
 ### 2.
 ```powershell
-Get-AdUser -Filter * | Sort-Object -Property GivenName | Format-Table
+Get-Process | Sort-Object -Property ProcessName | Format-Table
 ```
 ---
 ### 3.
 ```powershell
-Get-AdGroupe -Filter * | Measure-Object
+Get-Process -Name svchost | Measure-Object
 ```
 ---
 ### 4.
 ```powershell
-Get-AdUser -Filter * | Select-Object -Last 3
+Get-Process | Sort-Object -Property PM | Select-Object -Last 3
+#oder
+Get-Process | Sort-Object -Property PM -Descending | Select-Object -First 3
 ```
