@@ -1,4 +1,27 @@
-﻿[cmdletBinding()]
+﻿<#
+.Synopsis
+   Skript zur Abfrage von LogonEvents
+.DESCRIPTION
+   Mit diesem Skript können Events aus dem Log SEcurity abgefragt werden. Es sind die Typen Anmeldung, Abmeldung und fehlgeschlagene Anmeldung möglich.
+.EXAMPLE
+   Get-Eventlog.ps1 -EventId 4634 
+
+   Hier werden Standardmäßig die aktuellensten 5 Abmeldungen abgefragt da die Eventid 4634 für die Abmeldung steht
+.EXAMPLE
+   Get-Eventlog.ps1 -Computername localhost -EventId 4624 -Newest 4
+
+   Hier werden expliziet die aktuellesten 4 Anmeldungen vom localhost abgefragt
+.PARAMETER EventId
+    4624 | Anmeldung
+    4625 | fehlschlagene Anmeldung
+    4634 | Abmeldung
+.NOTES
+  Author: StefanO@ppedv.de
+  Erstellt am: 23.01.2024
+.LINK
+https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_comment_based_help?view=powershell-5.1#syntax-for-comment-based-help-in-scripts
+#>
+[cmdletBinding()]
 param(
 [Parameter(Mandatory=$true)]
 [int]$EventId,
