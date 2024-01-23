@@ -24,12 +24,16 @@ https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/ab
 [cmdletBinding()]
 param(
 [Parameter(Mandatory=$true)]
+[ValidateSet(4624,4625,4634)]
 [int]$EventId,
 
+[ValidateRange(5,10)]
 [int]$Newest = 5,
 
 [string]$Computername = "localhost"
 )
+
+$Newest = 23
 Write-Verbose -Message "Ich gebe eine zusätzliche Ausgabe aus wenn das Skript mit -verbose gestartet wird. Anforderung ist hierbei das [cmdletBinding()]"
 Write-Verbose -Message "Vor der Abfrage, $EventId , $Newest , $Computername"
 Get-EventLog -LogName Security -ComputerName $Computername | Where-Object EventId -eq $EventId | Select-Object -First $Newest
