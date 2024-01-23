@@ -13,7 +13,7 @@
    Hier werden expliziet die aktuellesten 4 Anmeldungen vom localhost abgefragt
 .PARAMETER EventId
     4624 | Anmeldung
-    4625 | fehlschlagene Anmeldung
+    4625 | fehlgeschlagene Anmeldung
     4634 | Abmeldung
 .NOTES
   Author: StefanO@ppedv.de
